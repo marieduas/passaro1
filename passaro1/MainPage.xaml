@@ -1,11 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="passaro1.MainPage">
+             x:Class="passaro1.MainPage"
+             Shell.NavBarIsVisible="False">
 
     
     <Grid>
-        
+
+        <Image x:Name="fundo"
+               Source="imagemfundo.png"
+               Opacity="8"
+               Aspect="Fill"
+               VerticalOptions="FillAndExpand"
+               HorizontalOptions="FillAndExpand"/>
+
+        <Image x:Name="passaro"
+               Source="passaro.png"
+               WidthRequest="60"
+               HeightRequest="90"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"/>
+
+        <Image x:Name="canodecima"
+               Source="canocima.png"
+               WidthRequest="60"
+               VerticalOptions="Start"
+               HorizontalOptions="End"/>
+
+        <Image x:Name="canodebaixo"
+               Source="canobaixo.png"
+               WidthRequest="60"
+               VerticalOptions="End"
+               HorizontalOptions="End"/>
+
+        <Image x:Name="chao"
+               Source="chao.png"
+               WidthRequest="900"
+               VerticalOptions="End"
+               HorizontalOptions="Fill"/>
+
+
+
+
     </Grid>
 
 </ContentPage>
