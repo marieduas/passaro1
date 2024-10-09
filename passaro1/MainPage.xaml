@@ -8,7 +8,7 @@
     <Grid>
 
         <Image x:Name="fundo"
-               Source="imagemfundo.png"
+               Source="fundo.png"
                Opacity="8"
                Aspect="Fill"
                VerticalOptions="FillAndExpand"
