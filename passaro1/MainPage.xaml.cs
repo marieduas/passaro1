@@ -2,8 +2,8 @@
 
 public partial class MainPage : ContentPage
 {
-	const int gravidade = 30; //pixel
-	const int tempoEntreFrames = 100;
+	const int gravidade = 2; 
+	const int tempoEntreFrames = 25;
 	bool estaMorto = false;
 	int count = 0;
 
