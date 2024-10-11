@@ -9,35 +9,48 @@
 
         <Image x:Name="fundo"
                Source="fundo.png"
-               Opacity="8"
                Aspect="Fill"
                VerticalOptions="FillAndExpand"
                HorizontalOptions="FillAndExpand"/>
 
         <Image x:Name="passaro"
                Source="passaro.png"
-               WidthRequest="60"
-               HeightRequest="90"
-               VerticalOptions="Center"
+               WidthRequest="70"
+               HeightRequest="70"
                HorizontalOptions="Start"/>
 
         <Image x:Name="canodecima"
                Source="canocima.png"
-               WidthRequest="60"
+               WidthRequest="300"
+               HeightRequest="300"
                VerticalOptions="Start"
                HorizontalOptions="End"/>
 
         <Image x:Name="canodebaixo"
                Source="canobaixo.png"
-               WidthRequest="60"
+               WidthRequest="300"
+               HeightRequest="300"
                VerticalOptions="End"
                HorizontalOptions="End"/>
 
-        <Image x:Name="chao"
-               Source="chao.png"
-               WidthRequest="900"
-               VerticalOptions="End"
-               HorizontalOptions="Fill"/>
+       <Frame x:Name="frameGameOver"
+              BackgroundColor="#99000000"
+              VerticalOptions="FillAndExpand"
+              HorizontalOptions="FillAndExpand">
+
+       <Frame.GestureRecognizers>
+              <TapGestureRecognizer Tapped="OnGameOverClicked"/>
+       </Frame.GestureRecognizers>
+
+       <Image x:Name="iniciar"
+              Source="iniciar.png"
+              WidthRequest="150"
+              HeightRequest="150"
+              VerticalOptions="CenterAndExpand"
+              HorizontalOptions="CenterAndExpand"
+              Aspect="Fill"/>
+
+       </Frame>
 
 
 
