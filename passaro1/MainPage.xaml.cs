@@ -12,6 +12,8 @@ public partial class MainPage : ContentPage
 	int tempoPulando = 0;
 	bool estaPulando = false;
 	const int forcaPulo =60;
+	const int aberturaMinima = 200;
+
 
 
 	public MainPage()
@@ -58,6 +60,10 @@ public partial class MainPage : ContentPage
 		{
 			canodebaixo.TranslationX = 100;
 			canodecima.TranslationX = 100;
+			var alturaMax =-100;
+			var alturaMin =-canodebaixo.HeightRequest;
+			canodecima.TranslationY = Random.Shared.Next((int)alturaMin,(int)alturaMax);
+			canodebaixo.TranslationY = canodecima.TranslationY + aberturaMinima + canodebaixo.HeightRequest;
 		}
 	}
 	void Inicializar()
