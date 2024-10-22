@@ -13,6 +13,8 @@ public partial class MainPage : ContentPage
 	bool estaPulando = false;
 	const int forcaPulo =60;
 	const int aberturaMinima = 200;
+	int score = 0;
+
 
 
 
@@ -60,6 +62,8 @@ public partial class MainPage : ContentPage
 		{
 			canodebaixo.TranslationX = 100;
 			canodecima.TranslationX = 100;
+			score++;
+			labelLP.Text = "canos: "+score.ToString("D3");
 			var alturaMax =-100;
 			var alturaMin =-canodebaixo.HeightRequest;
 			canodecima.TranslationY = Random.Shared.Next((int)alturaMin,(int)alturaMax);
@@ -70,6 +74,11 @@ public partial class MainPage : ContentPage
 	{
 		morto = false;
 		passaro.TranslationY = 0;
+		passaro.TranslationX = 0;
+		score = 0;
+		GerenciaCanos();
+		canodebaixo.TranslationY =-larguraJanela;
+		canodecima.TranslationX =-larguraJanela;
 	}
 
 	void OnGameOverClicked(object s, TappedEventArgs a)
@@ -85,14 +94,16 @@ public partial class MainPage : ContentPage
 		if (!morto)
 		{
 			if (VerificaColisaoTeto() ||
-				VerificaColisaoChao())
-			{
+				VerificaColisaoChao() ||
+				VerificaColisaoCanoCima()||
+				VerificaColisaoCanoBaixo())
 				return true;
-			}
 				
 		}
 		return false;
+		
 	}
+
 	 private bool VerificaColisaoTeto()
 	{
 		var minY =-alturaJanela/2;
@@ -111,6 +122,37 @@ public partial class MainPage : ContentPage
 	 else
 			return false;
 	}
+	bool VerificaColisaoCanoCima()
+	{
+		var posHpassaro = (larguraJanela/2)-(passaro.WidthRequest/2);
+		var posVpassaro = (alturaJanela/2)-(passaro.HeightRequest/2)+passaro.TranslationY;
+		if (posHpassaro>= Math.Abs(canodecima.TranslationX)-canodecima.WidthRequest &&
+		    posHpassaro<= Math.Abs(canodecima.TranslationX)+canodecima.WidthRequest &&
+			posVpassaro<= canodecima.HeightRequest +canodecima.TranslationY)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+
+	}
+	bool VerificaColisaoCanoBaixo()
+	{
+		var posHpassaro = (larguraJanela/2)-(passaro.WidthRequest/2);
+		var posVpassaro = (alturaJanela/2)-(passaro.HeightRequest/2)+passaro.TranslationY;
+		if (posHpassaro>= Math.Abs((double)canodebaixo.TranslationY)-canodebaixo.WidthRequest &&
+		    posHpassaro<= Math.Abs((double)canodebaixo.TranslationY)+canodebaixo.WidthRequest && 
+			posVpassaro<= canodebaixo.HeightRequest +canodebaixo.TranslationY)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+	}
 	void AplicarPulo()
 	{
 		passaro.TranslationY -=forcaPulo;
@@ -125,5 +167,6 @@ public partial class MainPage : ContentPage
 	{
 		estaPulando = true;
 	}
+
 
 }

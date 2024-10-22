@@ -20,7 +20,8 @@
                Source="passaro.png"
                WidthRequest="70"
                HeightRequest="70"
-               HorizontalOptions="Start"/>
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
 
         <Image x:Name="canodecima"
                Source="canocima.png"
@@ -35,6 +36,13 @@
                HeightRequest="300"
                VerticalOptions="End"
                HorizontalOptions="End"/>
+
+       <Label Text=""
+              TextColor="Blue"
+              FontSize="45"
+              x:Name="labelLP"
+              FontFamily="CollegiatebackFLF.ttf"
+              VerticalOptions="Start"/>
 
        <Frame x:Name="frameGameOver"
               BackgroundColor="#99000000"
