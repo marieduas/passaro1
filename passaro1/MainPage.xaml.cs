@@ -63,6 +63,8 @@ public partial class MainPage : ContentPage
 			canodebaixo.TranslationX = 100;
 			canodecima.TranslationX = 100;
 			score++;
+			if (score%2==0)
+			    velocidade++;
 			labelLP.Text = "canos: "+score.ToString("D3");
 			var alturaMax =-100;
 			var alturaMin =-canodebaixo.HeightRequest;
@@ -93,11 +95,10 @@ public partial class MainPage : ContentPage
 	{
 		if (!morto)
 		{
-			if (VerificaColisaoTeto() ||
+			return VerificaColisaoTeto() ||
 				VerificaColisaoChao() ||
 				VerificaColisaoCanoCima()||
-				VerificaColisaoCanoBaixo())
-				return true;
+				VerificaColisaoCanoBaixo();
 				
 		}
 		return false;
@@ -142,9 +143,10 @@ public partial class MainPage : ContentPage
 	{
 		var posHpassaro = (larguraJanela/2)-(passaro.WidthRequest/2);
 		var posVpassaro = (alturaJanela/2)-(passaro.HeightRequest/2)+passaro.TranslationY;
-		if (posHpassaro>= Math.Abs((double)canodebaixo.TranslationY)-canodebaixo.WidthRequest &&
-		    posHpassaro<= Math.Abs((double)canodebaixo.TranslationY)+canodebaixo.WidthRequest && 
-			posVpassaro<= canodebaixo.HeightRequest +canodebaixo.TranslationY)
+		var yMaxCano = canodecima.HeightRequest + canodecima.TranslationY + aberturaMinima;
+		if (posHpassaro>= Math.Abs(canodebaixo.TranslationX)-canodebaixo.WidthRequest &&
+		    posHpassaro<= Math.Abs(canodebaixo.TranslationX)+canodebaixo.WidthRequest && 
+			posVpassaro>=yMaxCano)
 			{
 				return true;
 			}
