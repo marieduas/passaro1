@@ -2,70 +2,89 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="passaro1.MainPage"
-             Shell.NavBarIsVisible="False">
+             Shell.NavBarIsVisible="False"
+             Padding ="0"
+             BackgroundColor="White">
 
     
-    <Grid>
+    <Grid Margin="0"
+          Padding="0">
     <Grid.GestureRecognizers>
     <TapGestureRecognizer Tapped="OnGridClickd"/>
     </Grid.GestureRecognizers>
 
-        <Image x:Name="fundo"
+       <Image x:Name="fundo"
                Source="fundo.png"
-               Aspect="Fill"
-               VerticalOptions="FillAndExpand"
-               HorizontalOptions="FillAndExpand"/>
+               Margin="0"
+               Aspect="AspectFill"
+               VerticalOptions="Fill"
+               HorizontalOptions="Fill"/>
 
-        <Image x:Name="passaro"
+       <Image x:Name="passaro"
                Source="passaro.png"
-               WidthRequest="70"
-               HeightRequest="70"
-               HorizontalOptions="Center"
+               Aspect="AspectFit"
+               Margin="20,0,0,0"
+               WidthRequest="50"
+               HeightRequest="50"
+               HorizontalOptions="Start"
                VerticalOptions="Center"/>
 
-        <Image x:Name="canodecima"
+       <Image x:Name="canodecima"
                Source="canocima.png"
-               WidthRequest="300"
-               HeightRequest="300"
+               Margin="0,0,0,0"
+               Aspect="Fill"
+               WidthRequest="50"
+               HeightRequest="620"
                VerticalOptions="Start"
                HorizontalOptions="End"/>
 
-        <Image x:Name="canodebaixo"
+       <Image x:Name="canodebaixo"
                Source="canobaixo.png"
-               WidthRequest="300"
-               HeightRequest="300"
-               VerticalOptions="End"
+               Margin="0,0,0,20"
+               Aspect="Fill"
+               WidthRequest="50"
+               HeightRequest="620"
+               VerticalOptions="Start"
                HorizontalOptions="End"/>
 
-       <Label Text=""
-              TextColor="Blue"
-              FontSize="45"
-              x:Name="labelLP"
-              FontFamily="CollegiatebackFLF.ttf"
-              VerticalOptions="Start"/>
+       <Label x:Name="labelScore"
+           Text="Score: 00000"
+           FontSize="30"
+           Margin="0,20,20,0"
+           FontFamily="slkscre"
+           VerticalOptions="Start"
+           HorizontalOptions="End"/>
+
 
        <Frame x:Name="frameGameOver"
-              BackgroundColor="#99000000"
-              VerticalOptions="FillAndExpand"
-              HorizontalOptions="FillAndExpand">
+              BackgroundColor="#60000000"
+              VerticalOptions="Fill"
+              HorizontalOptions="Fill">
 
        <Frame.GestureRecognizers>
               <TapGestureRecognizer Tapped="OnGameOverClicked"/>
        </Frame.GestureRecognizers>
 
+       <VerticalStackLayout VerticalOptions="Center">
+
+        <Label x:Name="labelLP"
+              Text="Score: 00000"
+              FontSize="30"
+              Margin="0,20,20,0"
+              FontFamily="slkscre"
+              VerticalOptions="Start"
+              HorizontalOptions="Center"
+              HorizontalTextAlignment="Center"/>
+
        <Image x:Name="iniciar"
               Source="iniciar.png"
-              WidthRequest="150"
-              HeightRequest="150"
-              VerticalOptions="CenterAndExpand"
-              HorizontalOptions="CenterAndExpand"
-              Aspect="Fill"/>
+              Aspect="AspectFill"
+              Margin="0,200,0,0"
+              WidthRequest="300"
+              HeightRequest="150"/>
 
+      </VerticalStackLayout>
        </Frame>
-
-
-
-
     </Grid>
 
 </ContentPage>
