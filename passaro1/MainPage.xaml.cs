@@ -38,6 +38,7 @@ public partial class MainPage : ContentPage
 		passaro.TranslationY = 0;
 		passaro.TranslationX = 0;
 		score = 0;
+		SoundHelper.Play("inicio.mp3");
 		canodebaixo.TranslationY =-larguraJanela;
 		canodecima.TranslationX =-larguraJanela;
 
@@ -60,6 +61,7 @@ public partial class MainPage : ContentPage
 			if (VerificaColisao())
 			{
 				morto = true;
+				SoundHelper.Play("morte.mp3");
 				labelLP.Text = "Você passou por " + score + "canos";
 				frameGameOver.IsVisible = true;
 				break;
